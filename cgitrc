@@ -1,0 +1,82 @@
+#
+# cgit config
+#
+
+# if cgit messes up links, use a virtual-root. For example has cgit.example.org/ this value:
+virtual-root=/
+
+robots=noindex, nofollow
+
+css=/cgit.css
+logo=/cgit.png
+
+# Specify some default clone urls using macro expansion
+lone-url=http://git.home.net/git/$CGIT_REPO_URL git@git.home.net:$CGIT_REPO_URL
+
+# Show owner on index page
+enable-index-owner=1
+
+# Source gitweb.description, gitweb.owner from each project config
+enable-git-config=1
+
+# Allow http transport git clone
+enable-git-clone=0
+
+# Show extra links for each repository on the index page
+enable-index-links=1
+
+# Remove .git suffix from project display
+remove-suffix=1
+
+# Enable ASCII art commit history graph on the log pages
+enable-commit-graph=1
+
+# Show number of affected files per commit on the log pages
+enable-log-filecount=1
+
+# Show number of added/removed lines per commit on the log pages
+enable-log-linecount=1
+
+# Sort branches by date
+branch-sort=age
+
+# Allow download of tar.gz, tar.bz2 and zip-files
+snapshots=tar.bz2 zip
+
+##
+## List of common mimetypes
+##
+mimetype.gif=image/gif
+mimetype.html=text/html
+mimetype.jpg=image/jpeg
+mimetype.jpeg=image/jpeg
+mimetype.pdf=application/pdf
+mimetype.png=image/png
+mimetype.svg=image/svg+xml
+
+# Highlight source code with python pygments-based highligher
+source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
+
+# Format markdown, restructuredtext, manpages, text files, and html files
+# through the right converters
+about-filter=/usr/lib/cgit/filters/about-formatting.sh
+
+##
+## Search for these files in the root of the default branch of repositories
+## for coming up with the about page:
+##
+readme=:README.md
+readme=:README.html
+readme=:README.txt
+
+##
+## List of repositories.
+## PS: Any repositories listed when section is unset will not be
+##     displayed under a section heading
+## PPS: This list could be kept in a different file (e.g. '/etc/cgitrepos')
+##      and included like this:
+##        include=/etc/cgitrepos
+##
+
+scan-path=/srv/repositories
+
