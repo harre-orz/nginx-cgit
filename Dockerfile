@@ -1,9 +1,11 @@
 FROM alpine:edge
 
-RUN apk update && apk add --no-cache nginx cgit fcgiwrap highlight py3-markdown py3-pygments
+RUN apk add --update --no-cache cgit fcgiwrap git-daemon highlight nginx py3-markdown py3-pygments supervisor
 
-ADD nginx.conf /etc/nginx/nginx.conf
 ADD cgitrc /etc/cgitrc
-ADD nginx.sh /usr/sbin/nginx.sh
+ADD nginx.conf /etc/nginx/nginx.conf
+ADD supervisord.conf /etc/supervisord.conf
 
-CMD /usr/sbin/nginx.sh
+EXPOSE 80 9418
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
