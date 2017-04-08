@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine
 
 RUN apk add --update --no-cache cgit fcgiwrap nginx py3-markdown py3-pygments
 ADD etc /etc
