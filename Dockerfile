@@ -5,5 +5,7 @@ ADD etc /etc
 
 EXPOSE 80
 
-CMD rm -f /run/fcgiwrap.sock; fcgiwrap -s unix://run/fcgiwrap.sock & sleep 1; chown nginx:nginx /run/fcgiwrap.sock && /usr/sbin/nginx
+CMD rm -f /run/fcgiwrap.sock && fcgiwrap -s unix://run/fcgiwrap.sock & \
+    sleep 1 && chown nginx:nginx /run/fcgiwrap.sock && /usr/sbin/nginx & \
+    wait
 
