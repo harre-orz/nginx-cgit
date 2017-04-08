@@ -5,9 +5,8 @@ services:
     hostname: git
     domainname: example.com
     ports:
-      - "10080:80"
-      - "9418:9418"
+      - "80:80"
     volumes:
-      - "/Users/harre/hoge:/srv/repositories:ro"
+      - "/srv/repositories:/srv/repositories:ro"
     tmpfs:
       - /run

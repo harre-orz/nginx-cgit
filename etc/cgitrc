@@ -4,14 +4,11 @@
 
 # if cgit messes up links, use a virtual-root. For example has cgit.example.org/ this value:
 virtual-root=/
-
-robots=noindex, nofollow
-
 css=/cgit.css
 logo=/cgit.png
 
 # Specify some default clone urls using macro expansion
-clone-url=git://$HTTP_HOST/$CGIT_REPO_URL ssh://<USER>@$HTTP_HOST:/$CGIT_REPO_URL
+clone-url=http://$HTTP_HOST/$CGIT_REPO_URL ssh://<USER>@$HTTP_HOST/$CGIT_REPO_URL
 
 # Show owner on index page
 enable-index-owner=1
@@ -20,13 +17,10 @@ enable-index-owner=1
 enable-git-config=1
 
 # Allow http transport git clone
-enable-git-clone=1
+enable-http-clone=1
 
 # Show extra links for each repository on the index page
 enable-index-links=1
-
-# Remove .git suffix from project display
-remove-suffix=0
 
 # Enable ASCII art commit history graph on the log pages
 enable-commit-graph=1

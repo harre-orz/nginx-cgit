@@ -1,9 +1,9 @@
 FROM alpine:edge
 
-RUN apk add --update --no-cache cgit fcgiwrap git-daemon highlight nginx py3-markdown py3-pygments supervisor
-
+RUN apk add --update --no-cache cgit fcgiwrap nginx py3-markdown py3-pygments
 ADD etc /etc
 
-EXPOSE 80 9418
+EXPOSE 80
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+CMD rm -f /run/fcgiwrap.sock; fcgiwrap -s unix://run/fcgiwrap.sock & sleep 1; chown nginx:nginx /run/fcgiwrap.sock && /usr/sbin/nginx
+
