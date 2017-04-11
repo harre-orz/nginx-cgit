@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:edge
 MAINTAINER Haruhiko Uchida <harre.orz@gmail.com>
 
 RUN apk add --update --no-cache cgit fcgiwrap nginx py3-markdown py3-pygments
